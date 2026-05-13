@@ -116,7 +116,7 @@ export default function Page() {
 
         <nav>
           <a href="#wall">Feedback</a>
-          <a href="#submit">Submit tweet</a>
+          <a href="#submit">Submit Tweet</a>
           <a href="https://www.allscale.io" target="_blank">
             AllScale <ArrowUpRight size={13} />
           </a>
