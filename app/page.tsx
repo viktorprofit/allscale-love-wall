@@ -142,6 +142,9 @@ export default function Page() {
             View feedback
           </a>
         </div>
+        <div className="heroImage">
+  <img src="/checkout.jpg" alt="AllScale Checkout" />
+</div>
       </section>
 
       <section id="submit" className="submitSection">
