@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "AllScale Love Wall",
-  description: "Community tweets and testimonials about AllScale"
+  title: "AllScale Feedback Wall",
+  description: "Community feedback and reviews about AllScale"
 };
 
 export default function RootLayout({
