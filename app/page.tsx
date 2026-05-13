@@ -3,12 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Plus } from "lucide-react";
 
-const DEFAULT_TWEETS = [
-  "https://twitter.com/allscale_io/status/1900000000000000000",
-  "https://twitter.com/allscale_io/status/1900000000000000001",
-  "https://twitter.com/allscale_io/status/1900000000000000002",
-  "https://twitter.com/allscale_io/status/1900000000000000003"
-];
+const DEFAULT_TWEETS: string[] = [];
 
 declare global {
   interface Window {
@@ -25,9 +20,7 @@ function normalizeTweetUrl(value: string) {
 
   if (!clean) return null;
 
-  const isTweet =
-    clean.includes("twitter.com/") ||
-    clean.includes("x.com/");
+  const isTweet = clean.includes("twitter.com/") || clean.includes("x.com/");
 
   if (!isTweet || !clean.includes("/status/")) return null;
 
@@ -91,10 +84,10 @@ export default function Page() {
         </div>
 
         <nav>
-          <a href="#wall">Wall</a>
+          <a href="#wall">Feedback</a>
           <a href="#submit">Submit tweet</a>
           <a href="https://www.allscale.io" target="_blank">
-            AllScale <ArrowUpRight size={16} />
+            AllScale <ArrowUpRight size={13} />
           </a>
         </nav>
 
@@ -104,30 +97,31 @@ export default function Page() {
       </header>
 
       <section className="hero">
-        <p className="eyebrow">Community testimonials</p>
-        <h1>What people say about AllScale</h1>
+        <p className="eyebrow">Community feedback</p>
+        <h1>Real feedback from AllScale users</h1>
         <p className="subtitle">
-          A curated wall of real user tweets about self-custody stablecoin
-          banking, global payments, payroll, invoices, and borderless business.
+          A curated collection of public X/Twitter reviews from people using
+          AllScale for stablecoin payments, global transfers, invoices, payroll,
+          and borderless business.
         </p>
 
         <div className="heroActions">
           <a href="#submit" className="primaryButton">
-            Add your tweet
+            Add your feedback
           </a>
           <a href="#wall" className="secondaryButton">
-            View wall
+            View feedback
           </a>
         </div>
       </section>
 
       <section id="submit" className="submitSection">
         <div>
-          <p className="sectionLabel">Submit</p>
-          <h2>Add your tweet to the wall</h2>
+          <p className="sectionLabel">Submit feedback</p>
+          <h2>Add your tweet review</h2>
           <p>
-            Paste a public X/Twitter post URL. It will appear as an embedded
-            tweet preview.
+            Paste a public X/Twitter post URL with your AllScale feedback. It
+            will appear as an embedded tweet preview.
           </p>
         </div>
 
@@ -138,7 +132,7 @@ export default function Page() {
             placeholder="https://x.com/username/status/..."
           />
           <button type="submit">
-            <Plus size={20} />
+            <Plus size={16} />
             Add tweet
           </button>
         </form>
@@ -147,8 +141,8 @@ export default function Page() {
       <section id="wall" className="wallSection">
         <div className="sectionHeader">
           <div>
-            <p className="sectionLabel">Wall</p>
-            <h2>AllScale love wall</h2>
+            <p className="sectionLabel">Feedback wall</p>
+            <h2>AllScale feedback wall</h2>
           </div>
           <span>{tweets.length} tweets</span>
         </div>
