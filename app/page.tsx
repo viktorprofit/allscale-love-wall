@@ -131,9 +131,7 @@ export default function Page() {
         <p className="eyebrow">Community feedback</p>
         <h1>Real feedback from AllScale users</h1>
         <p className="subtitle">
-          A curated collection of public X/Twitter reviews from people using
-          AllScale for stablecoin payments, global transfers, invoices, payroll,
-          and borderless business.
+          A curated collection of public X/Twitter reviews from people using AllScale for stablecoin payments, global transfers, invoices, payroll, Checkout, and borderless business.
         </p>
 
         <div className="heroActions">
