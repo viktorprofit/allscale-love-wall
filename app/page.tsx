@@ -151,8 +151,10 @@ export default function Page() {
         </div>
 
         <div className="heroImage">
-          <img src="/checkout.jpg" alt="AllScale Checkout" />
-        </div>
+  <div className="heroImageFrame">
+    <img src="/checkout.jpg" alt="AllScale Checkout" />
+  </div>
+</div>
       </section>
 
       <section id="submit" className="submitSection">
