@@ -151,8 +151,7 @@ export default function Page() {
           <p className="sectionLabel">Submit feedback</p>
           <h2>Add your tweet review</h2>
           <p>
-            Paste a public X/Twitter post URL with your AllScale feedback. It
-            will appear as an embedded tweet preview.
+            Share your real experience with AllScale on X/Twitter and submit your tweet link to add your feedback to the public wall.
           </p>
         </div>
 
