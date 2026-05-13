@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Plus } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
-const DEFAULT_TWEETS: string[] = [];
+type Tweet = {
+  id: number;
+  url: string;
+  created_at: string;
+};
 
 declare global {
   interface Window {
@@ -29,19 +34,31 @@ function normalizeTweetUrl(value: string) {
 
 export default function Page() {
   const [tweetUrl, setTweetUrl] = useState("");
-  const [tweets, setTweets] = useState<string[]>(DEFAULT_TWEETS);
+  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  async function loadTweets() {
+    const { data, error } = await supabase
+      .from("tweets")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      alert("Could not load tweets.");
+      console.error(error);
+    } else {
+      setTweets(data || []);
+    }
+
+    setLoading(false);
+  }
 
   useEffect(() => {
-    const saved = localStorage.getItem("allscale-tweets");
-
-    if (saved) {
-      setTweets(JSON.parse(saved));
-    }
+    loadTweets();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("allscale-tweets", JSON.stringify(tweets));
-
     const scriptId = "twitter-widgets";
 
     if (!document.getElementById(scriptId)) {
@@ -55,7 +72,7 @@ export default function Page() {
     }
   }, [tweets]);
 
-  function addTweet(event: React.FormEvent) {
+  async function addTweet(event: React.FormEvent) {
     event.preventDefault();
 
     const normalized = normalizeTweetUrl(tweetUrl);
@@ -65,13 +82,27 @@ export default function Page() {
       return;
     }
 
-    if (tweets.includes(normalized)) {
-      alert("This tweet is already added.");
+    setSaving(true);
+
+    const { error } = await supabase.from("tweets").insert({
+      url: normalized
+    });
+
+    setSaving(false);
+
+    if (error) {
+      if (error.code === "23505") {
+        alert("This tweet is already added.");
+      } else {
+        alert("Could not add tweet.");
+        console.error(error);
+      }
+
       return;
     }
 
-    setTweets([normalized, ...tweets]);
     setTweetUrl("");
+    await loadTweets();
   }
 
   return (
@@ -131,9 +162,9 @@ export default function Page() {
             onChange={(event) => setTweetUrl(event.target.value)}
             placeholder="https://x.com/username/status/..."
           />
-          <button type="submit">
+          <button type="submit" disabled={saving}>
             <Plus size={16} />
-            Add tweet
+            {saving ? "Adding..." : "Add tweet"}
           </button>
         </form>
       </section>
@@ -147,15 +178,21 @@ export default function Page() {
           <span>{tweets.length} tweets</span>
         </div>
 
-        <div className="tweetGrid">
-          {tweets.map((url) => (
-            <article className="tweetCard" key={url}>
-              <blockquote className="twitter-tweet" data-theme="light">
-                <a href={url}>{url}</a>
-              </blockquote>
-            </article>
-          ))}
-        </div>
+        {loading ? (
+          <p className="emptyState">Loading feedback...</p>
+        ) : tweets.length === 0 ? (
+          <p className="emptyState">No feedback tweets yet. Be the first one.</p>
+        ) : (
+          <div className="tweetGrid">
+            {tweets.map((tweet) => (
+              <article className="tweetCard" key={tweet.id}>
+                <blockquote className="twitter-tweet" data-theme="light">
+                  <a href={tweet.url}>{tweet.url}</a>
+                </blockquote>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );
