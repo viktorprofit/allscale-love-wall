@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Plus } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../lib/supabase";
 
 type Tweet = {
   id: number;
