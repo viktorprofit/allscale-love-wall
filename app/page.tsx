@@ -45,7 +45,6 @@ export default function Page() {
       .order("created_at", { ascending: false });
 
     if (error) {
-      alert("Could not load tweets.");
       console.error(error);
     } else {
       setTweets(data || []);
@@ -116,7 +115,8 @@ export default function Page() {
 
         <nav>
           <a href="#wall">Feedback</a>
-          <a href="#submit">Submit Tweet</a>
+          <a href="#submit">Submit tweet</a>
+
           <a href="https://www.allscale.io" target="_blank">
             AllScale <ArrowUpRight size={13} />
           </a>
@@ -128,31 +128,42 @@ export default function Page() {
       </header>
 
       <section className="hero">
-        <p className="eyebrow">Community feedback</p>
-        <h1>Real feedback from AllScale users</h1>
-        <p className="subtitle">
-          A curated collection of public X/Twitter reviews from people using AllScale for stablecoin payments, global transfers, invoices, payroll, Checkout, and borderless business.
-        </p>
+        <div className="heroContent">
+          <p className="eyebrow">Community feedback</p>
 
-        <div className="heroActions">
-          <a href="#submit" className="primaryButton">
-            Add your feedback
-          </a>
-          <a href="#wall" className="secondaryButton">
-            View feedback
-          </a>
+          <h1>Real feedback from AllScale users</h1>
+
+          <p className="subtitle">
+            A curated collection of public X/Twitter reviews from people using
+            AllScale for stablecoin payments, global transfers, invoices,
+            payroll, Checkout integrations, and borderless business.
+          </p>
+
+          <div className="heroActions">
+            <a href="#submit" className="primaryButton">
+              Add your feedback
+            </a>
+
+            <a href="#wall" className="secondaryButton">
+              View feedback
+            </a>
+          </div>
         </div>
+
         <div className="heroImage">
-  <img src="/checkout.jpg" alt="AllScale Checkout" />
-</div>
+          <img src="/checkout.jpg" alt="AllScale Checkout" />
+        </div>
       </section>
 
       <section id="submit" className="submitSection">
         <div>
           <p className="sectionLabel">Submit feedback</p>
+
           <h2>Add your tweet review</h2>
+
           <p>
-            Share your real experience with AllScale on X/Twitter and submit your tweet link to add your feedback to the public wall.
+            Share your feedback and real experience with AllScale on
+            X/Twitter and submit your tweet link to add it to the public wall.
           </p>
         </div>
 
@@ -162,6 +173,7 @@ export default function Page() {
             onChange={(event) => setTweetUrl(event.target.value)}
             placeholder="https://x.com/username/status/..."
           />
+
           <button type="submit" disabled={saving}>
             <Plus size={16} />
             {saving ? "Adding..." : "Add tweet"}
@@ -173,15 +185,18 @@ export default function Page() {
         <div className="sectionHeader">
           <div>
             <p className="sectionLabel">Feedback wall</p>
-            <h2>AllScale feedback Wall</h2>
+            <h2>AllScale feedback wall</h2>
           </div>
+
           <span>{tweets.length} tweets</span>
         </div>
 
         {loading ? (
           <p className="emptyState">Loading feedback...</p>
         ) : tweets.length === 0 ? (
-          <p className="emptyState">No feedback tweets yet. Be the first one.</p>
+          <p className="emptyState">
+            No feedback tweets yet. Be the first one.
+          </p>
         ) : (
           <div className="tweetGrid">
             {tweets.map((tweet) => (
