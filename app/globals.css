@@ -347,7 +347,7 @@ main {
 }
 
 .heroImage img {
-  width: 82%;
+  width: 65%;
   border-radius: 32px;
   border: 1px solid #e7e7e7;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
