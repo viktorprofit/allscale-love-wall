@@ -30,7 +30,7 @@ main {
 }
 
 .nav {
-  height: 112px;
+  height: 88px;
   padding: 0 36px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -47,40 +47,40 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 30px;
+  font-size: 21px;
   letter-spacing: -0.06em;
   position: relative;
   width: fit-content;
 }
 
 .corner {
-  width: 14px;
-  height: 14px;
+  width: 11px;
+  height: 11px;
   border-color: #16d46f;
   position: absolute;
 }
 
 .cornerLeft {
-  left: -18px;
+  left: -15px;
   top: -4px;
-  border-left: 5px solid #16d46f;
-  border-top: 5px solid #16d46f;
+  border-left: 4px solid #16d46f;
+  border-top: 4px solid #16d46f;
   border-radius: 2px 0 0 0;
 }
 
 .cornerRight {
-  right: -18px;
+  right: -15px;
   bottom: -4px;
-  border-right: 5px solid #16d46f;
-  border-bottom: 5px solid #16d46f;
+  border-right: 4px solid #16d46f;
+  border-bottom: 4px solid #16d46f;
   border-radius: 0 0 2px 0;
 }
 
 .nav nav {
   display: flex;
   align-items: center;
-  gap: 42px;
-  font-size: 20px;
+  gap: 32px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -94,14 +94,14 @@ main {
   justify-self: end;
   background: #059b58;
   color: white;
-  padding: 26px 42px;
+  padding: 18px 30px;
   border-radius: 999px;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .hero {
-  padding: 120px 36px 80px;
+  padding: 84px 36px 56px;
   max-width: 1500px;
 }
 
@@ -109,22 +109,22 @@ main {
 .sectionLabel {
   color: #059b58;
   font-weight: 700;
-  font-size: 18px;
-  margin: 0 0 20px;
+  font-size: 13px;
+  margin: 0 0 14px;
 }
 
 .hero h1 {
-  max-width: 1250px;
+  max-width: 1100px;
   margin: 0;
-  font-size: clamp(64px, 9vw, 150px);
+  font-size: clamp(44px, 6vw, 100px);
   line-height: 0.92;
   letter-spacing: -0.085em;
 }
 
 .subtitle {
-  max-width: 760px;
-  margin: 46px 0 0;
-  font-size: clamp(24px, 2.5vw, 38px);
+  max-width: 640px;
+  margin: 34px 0 0;
+  font-size: clamp(16px, 1.8vw, 26px);
   line-height: 1.2;
   color: #333333;
   letter-spacing: -0.05em;
@@ -132,18 +132,18 @@ main {
 
 .heroActions {
   display: flex;
-  gap: 18px;
-  margin-top: 42px;
+  gap: 14px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
 .primaryButton,
 .secondaryButton,
 .tweetForm button {
-  height: 72px;
-  padding: 0 38px;
+  height: 54px;
+  padding: 0 28px;
   border-radius: 999px;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -164,36 +164,36 @@ main {
 }
 
 .submitSection {
-  margin: 40px 36px;
-  padding: 56px;
-  border-radius: 36px;
+  margin: 28px 36px;
+  padding: 40px;
+  border-radius: 30px;
   background: #f5f5f5;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 40px;
+  gap: 32px;
   align-items: center;
 }
 
 .submitSection h2,
 .wallSection h2 {
   margin: 0;
-  font-size: clamp(42px, 5vw, 86px);
+  font-size: clamp(28px, 3.5vw, 56px);
   letter-spacing: -0.075em;
   line-height: 0.95;
 }
 
 .submitSection p:not(.sectionLabel) {
-  font-size: 24px;
+  font-size: 16px;
   color: #777;
   line-height: 1.25;
-  max-width: 620px;
+  max-width: 520px;
 }
 
 .tweetForm {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   background: #ffffff;
-  padding: 14px;
+  padding: 12px;
   border-radius: 999px;
   border: 1px solid #e4e4e4;
 }
@@ -202,8 +202,8 @@ main {
   width: 100%;
   border: none;
   outline: none;
-  padding: 0 22px;
-  font-size: 20px;
+  padding: 0 18px;
+  font-size: 15px;
   background: transparent;
 }
 
@@ -214,7 +214,7 @@ main {
 }
 
 .wallSection {
-  padding: 80px 36px 120px;
+  padding: 56px 36px 90px;
 }
 
 .sectionHeader {
@@ -222,12 +222,12 @@ main {
   justify-content: space-between;
   gap: 24px;
   align-items: end;
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 }
 
 .sectionHeader span {
   color: #059b58;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -275,17 +275,17 @@ main {
   .nav nav {
     gap: 18px;
     flex-wrap: wrap;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .navCta {
     justify-self: start;
-    padding: 18px 28px;
-    font-size: 18px;
+    padding: 14px 22px;
+    font-size: 14px;
   }
 
   .hero {
-    padding: 70px 24px 50px;
+    padding: 60px 24px 42px;
   }
 
   .submitSection,
@@ -297,7 +297,7 @@ main {
   }
 
   .submitSection {
-    padding: 32px;
+    padding: 28px;
   }
 
   .tweetForm {
@@ -306,7 +306,7 @@ main {
   }
 
   .tweetForm input {
-    min-height: 58px;
+    min-height: 52px;
   }
 
   .tweetGrid {
