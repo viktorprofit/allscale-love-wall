@@ -136,7 +136,7 @@ export default function Page() {
           <p className="subtitle">
             A curated collection of public X/Twitter reviews from people using
             AllScale for stablecoin payments, global transfers, invoices,
-            payroll, Checkout integrations, and borderless business.
+            payroll, Checkout, and borderless business.
           </p>
 
           <div className="heroActions">
