@@ -173,7 +173,7 @@ export default function Page() {
         <div className="sectionHeader">
           <div>
             <p className="sectionLabel">Feedback wall</p>
-            <h2>AllScale feedback wall</h2>
+            <h2>AllScale feedback Wall</h2>
           </div>
           <span>{tweets.length} tweets</span>
         </div>
